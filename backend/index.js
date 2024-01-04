@@ -15,6 +15,13 @@ app.use(morgan('dev'))
 
 app.use(router)
 
+app.use('/', (req, res, next) => {
+  if (req.originalUrl === '/') {
+    return res.status(301).redirect(`/api-docs`)
+  }
+  return next()
+})
+
 app.all('*', (req, res) => {
   res.status(404).json({
     status: false,
