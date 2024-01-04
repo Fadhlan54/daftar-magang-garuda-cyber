@@ -7,12 +7,12 @@ Projek ini dibuat untuk daftar magang di Garuda Cyber
 
 
 
-# Entity Relationship Diagram
+## Entity Relationship Diagram
 Berikut adalah entity relationship diagram dari projek yang saya buat
 
 ![Entity Relationship Diagram](https://ik.imagekit.io/96gmelvyq/Garuda%20Cyber%20ERD.png?updatedAt=1704363087578)
 
-# Menjalankan Projek Secara Lokal
+## Menjalankan Projek Secara Lokal
 
 ### Menjalankan Backend
 
