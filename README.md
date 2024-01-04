@@ -1,7 +1,8 @@
 
 # Test Magang Garuda Cyber
 
-Projek ini dibuat untuk daftar magang di Garuda Cyber
+Projek ini dibuat untuk daftar magang di Garuda Cyber.
+Jika ada hal yang ingin ditanyakan bisa mengontak email muhammadfadhlan0011@gmail.com atau wa 08998653078
 
 ## Entity Relationship Diagram
 Berikut adalah entity relationship diagram dari projek yang saya buat
