@@ -3,16 +3,33 @@
 
 Projek ini dibuat untuk daftar magang di Garuda Cyber
 
-
-
-
-
 ## Entity Relationship Diagram
 Berikut adalah entity relationship diagram dari projek yang saya buat
 
 ![Entity Relationship Diagram](https://ik.imagekit.io/96gmelvyq/Garuda%20Cyber%20ERD.png?updatedAt=1704363087578)
 
-## Menjalankan Projek Secara Lokal
+
+## Environment Variables
+
+Untuk menjalankan projek ini, kamu perlu menambahkkan environment variables ke dalam file .env di backend dan juga di frontend
+
+
+### Backend
+`PORT`
+`DB_NAME`
+`DB_USER`
+`DB_PASS`
+`DB_HOST`
+`DB_PORT`
+`JWT_SECRET`
+`IMAGEKIT_PUBLIC_KEY`
+`IMAGEKIT_PRIVATE_KEY`
+`IMAGEKIT_URL`
+
+### Frontend
+`VITE_REACT_APP_API_URL`
+
+## Menjalankan Projek di Lokal
 
 ### Menjalankan Backend
 
