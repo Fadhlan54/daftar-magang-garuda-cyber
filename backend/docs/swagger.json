@@ -1,0 +1,570 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Test Magang Garuda",
+    "version": "1.0.0",
+    "description": "Halaman ini untuk mendokumentasi API dari Aplikasi sederhana Test Magang Garuda"
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "API ini untuk mengelola auth"
+    },
+    {
+      "name": "User",
+      "description": "API ini untuk mengelola data user"
+    },
+    {
+      "name": "Product",
+      "description": "API ini untuk mengelola data product"
+    },
+    {
+      "name": "Transaction",
+      "description": "API ini untuk mengelola data transaction"
+    },
+    {
+      "name": "Notifikasi",
+      "description": "API ini untuk mengelola data notifikasi"
+    }
+  ],
+
+  "paths": {
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "johndoe@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "password",
+                    "example": "password123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Login berhasil"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "description": "token",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU2NjU3NjQyfQ.6yRZ9xjwLw6B6p8c2C6G5w7q9X0jwQ6s"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Email atau password salah"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "John Doe"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "johndoe@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "password",
+                    "example": "password123"
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "description": "confirmPassword",
+                    "example": "password123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Register success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Register berhasil"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "description": "token",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU2NjU3NjQyfQ.6yRZ9xjwLw6B6p8c2C6G5w7q9X0jwQ6s"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get user detail",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get user detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "sukses mengambil detail user"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/topup": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Top up balance",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "description": "top up amount",
+                    "example": 100000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Top up balance success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "sukses top up sebesar 100000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/product": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Get all product",
+        "responses": {
+          "200": {
+            "description": "Get all product success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/product/{id}": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Get product by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "a5696b59-5a2d-4200-bd59-0eed1a3c54f9"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get product by id success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Data product ditemukan"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transaction": {
+      "get": {
+        "tags": ["Transaction"],
+        "summary": "Get all transaction",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all transaction success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Berhasil mendapatkan data transaksi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Transaction"],
+        "summary": "Create transaction",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productId": {
+                    "type": "string",
+                    "description": "productId",
+                    "example": "a5696b59-5a2d-4200-bd59-0eed1a3c54f9"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "amount",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Create transaction success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Berhasil memmbuat transaksi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transaction/{id}": {
+      "get": {
+        "tags": ["Transaction"],
+        "summary": "Get transaction by id",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "a5696b59-5a2d-4200-bd59-0eed1a3c54f9"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get transaction by id success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Berhasil mendapatkan data transaksi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transaction/{id}/pay": {
+      "patch": {
+        "tags": ["Transaction"],
+        "summary": "Pay transaction",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "a5696b59-5a2d-4200-bd59-0eed1a3c54f9"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pay transaction success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Transaksi berhasil di bayar"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/notification": {
+      "get": {
+        "tags": ["Notifikasi"],
+        "summary": "Get all notification",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all notification success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean",
+                      "description": "status",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "example": "Berhasil mendapatkan data notifikasi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
