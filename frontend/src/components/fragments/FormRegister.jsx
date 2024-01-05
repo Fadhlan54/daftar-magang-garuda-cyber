@@ -13,15 +13,15 @@ const FormRegister = () => {
   const handleRegister = (event) => {
     event.preventDefault();
 
-    // if (event.target.password.length < 8) {
-    //   setRegisterFailed("Password minimal 8 karakter");
-    //   return;
-    // }
+    if (event.target.password.length < 8) {
+      setRegisterFailed("Password minimal 8 karakter");
+      return;
+    }
 
-    // if (event.target.password.value !== event.target.confirmPassword.value) {
-    //   setRegisterFailed("Password tidak sama");
-    //   return;
-    // }
+    if (event.target.password.value !== event.target.confirmPassword.value) {
+      setRegisterFailed("Password tidak sama");
+      return;
+    }
 
     const data = {
       name: event.target.name.value,
@@ -46,7 +46,7 @@ const FormRegister = () => {
   return (
     <form onSubmit={handleRegister}>
       {registerFailed && (
-        <p className="py-2 text-white text-center my-4 bg-red-500 rounded">
+        <p className="py-2 text-white text-center my-4 bg-red-500 rounded font-semibold">
           {registerFailed}
         </p>
       )}

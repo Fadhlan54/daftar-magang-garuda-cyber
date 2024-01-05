@@ -49,7 +49,9 @@ const Navigation = ({ type }) => {
   if (type === "register") {
     return (
       <>
-        {"Already have an account? "}
+        <span className={`${isDarkMode ? "text-white" : "text-black"}`}>
+          {"Already have an account? "}
+        </span>
         <Link to="/login" className="text-blue-600">
           Login Now
         </Link>
