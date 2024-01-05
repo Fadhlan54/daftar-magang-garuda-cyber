@@ -49,7 +49,7 @@ const DetailProductPage = () => {
         navigate(`/checkout/${status.data?.transaction?.id}`);
       } else {
         Swal.fire({
-          title: "Pembayaran gagal",
+          title: "Checkout gagal",
           text: `${res?.response?.data?.message}`,
           icon: "error",
           confirmButtonText: "OK",

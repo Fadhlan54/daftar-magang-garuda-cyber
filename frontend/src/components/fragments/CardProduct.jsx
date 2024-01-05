@@ -49,9 +49,9 @@ const Footer = ({ price, id }) => {
       <Link
         to={`/products/${id}`}
         type="submit"
-        className=" bg-blue-600 w-full  text-center text-white py-2 px-4 rounded-lg block"
+        className=" bg-blue-600 w-full text-semibold  text-center text-white py-2 px-4 rounded-lg block mt-1 hover:bg-blue-700 focus:bg-blue-800"
       >
-        Buy
+        Beli
       </Link>
     </div>
   );

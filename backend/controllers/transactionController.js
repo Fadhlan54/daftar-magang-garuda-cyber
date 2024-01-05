@@ -108,6 +108,7 @@ const getTransactions = async (req, res, next) => {
         model: Product,
       },
     ],
+    order: [['createdAt', 'DESC']],
   })
 
   if (!transactions || transactions.length === 0) {

@@ -30,6 +30,17 @@ module.exports = {
       },
       {
         id: uuidv4(),
+        name: 'VGA RTX 200000',
+        imageUrl:
+          'https://images.unsplash.com/photo-1682096101368-e97a285f9c72?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        description: 'RTX 200000 bisa main tetris 1000 FPS',
+        price: 1500000,
+        category: 'PC component',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: uuidv4(),
         name: 'HP Smangsung',
         imageUrl:
           'https://images.unsplash.com/photo-1480694313141-fce5e697ee25?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNtYXJ0cGhvbmV8ZW58MHx8MHx8fDA%3D',

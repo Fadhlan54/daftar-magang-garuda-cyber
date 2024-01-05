@@ -46,13 +46,16 @@ export const payTransaction = async (id, callback) => {
   }
 };
 
-export const getTransactionHistory = async (callback) => {
+export const getTransactionHistory = async (status, callback) => {
   try {
-    const response = await axios.get(`${API_URL}/api/v1/transaction`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
+    const response = await axios.get(
+      `${API_URL}/api/v1/transaction?${status ? `status=${status}` : ""}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
     callback(response.data.data);
   } catch (error) {
     callback(false, error);

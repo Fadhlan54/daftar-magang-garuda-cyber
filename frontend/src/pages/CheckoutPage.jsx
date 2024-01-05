@@ -6,7 +6,7 @@ import {
   getTransactionDetail,
   payTransaction,
 } from "../services/transaction.service";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import Button from "../components/elements/Button";
 import Swal from "sweetalert2";
@@ -18,6 +18,7 @@ const CheckoutPage = () => {
   const { id } = useParams();
   const { isDarkMode } = useContext(DarkMode);
   const [transaction, setTransaction] = useState({});
+  const navigate = useNavigate();
 
   const currencyFormat = (value) => {
     if (value > 0) {
@@ -36,7 +37,6 @@ const CheckoutPage = () => {
     getTransactionDetail(id, (data, error) => {
       if (data) {
         setTransaction(data.transaction);
-        console.log(data.transaction.Product.name);
       } else {
         setError(error);
       }
@@ -50,7 +50,11 @@ const CheckoutPage = () => {
           title: "Pembayaran sukses",
           text: "Yeay! pembayaranmu sudah sukses",
           icon: "success",
-          confirmButtonText: "OK",
+          confirmButtonText: "Kembali ke Produk",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/products");
+          }
         });
 
         getDetailUser(localStorage.getItem("token"), (data) => {
@@ -62,6 +66,10 @@ const CheckoutPage = () => {
           text: `${error?.response?.data?.message}`,
           icon: "error",
           confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/products");
+          }
         });
       }
     });

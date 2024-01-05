@@ -51,12 +51,22 @@ const topUp = async (req, res, next) => {
 
 const getVoucher = async (req, res, next) => {
   try {
-    const user = req.user
+    const { status } = req.query
+
+    const whereCondition = {
+      userId: req.user.id,
+    }
+    if (status === 'used') {
+      whereCondition.isUsed = true
+    }
+
+    if (status === 'unused') {
+      whereCondition.isUsed = false
+    }
 
     const voucher = await Voucher.findAll({
-      where: {
-        userId: user.id,
-      },
+      where: whereCondition,
+      order: [['createdAt', 'DESC']],
     })
 
     res.status(200).json({

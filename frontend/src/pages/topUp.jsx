@@ -40,7 +40,7 @@ const TopUpPage = () => {
 
         Swal.fire({
           title: "Top Up Sukses",
-          text: `Selamat berhasil top up sebesar Rp. ${currencyFormat(
+          text: `Selamat berhasil top up sebesar ${currencyFormat(
             topUpAmount
           )}`,
           icon: "success",
