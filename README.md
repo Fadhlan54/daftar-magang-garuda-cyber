@@ -108,14 +108,8 @@ Install dependencies frontend
   npm install
 ```
 
-Build Project
-
-```bash
-  npm run build
-```
-
 Jalankan server
 
 ```bash
-  npm run preview
+  npm run dev
 ```
