@@ -7,7 +7,7 @@ Jika ada hal yang ingin ditanyakan bisa mengontak email muhammadfadhlan0011@gmai
 ## Entity Relationship Diagram
 Berikut adalah entity relationship diagram dari projek yang saya buat
 
-![Entity Relationship Diagram](https://ik.imagekit.io/96gmelvyq/Garuda%20Cyber%20ERD.png?updatedAt=1704363087578)
+![Entity Relationship Diagram](https://ik.imagekit.io/96gmelvyq/ERD%20test%20magang%20garuda%20cyber.png?updatedAt=1704552323453)
 
 
 ## Environment Variables
@@ -108,14 +108,8 @@ Install dependencies frontend
   npm install
 ```
 
-Build Project
-
-```bash
-  npm run build
-```
-
 Jalankan server
 
 ```bash
-  npm run preview
+  npm run dev
 ```
