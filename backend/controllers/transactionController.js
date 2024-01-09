@@ -209,7 +209,7 @@ const payTransaction = async (req, res, next) => {
   await transaction.update({
     status: 'paid',
   })
-  const newBalance = user.balance - transaction.productPrice
+  const newBalance = user.balance - transaction.totalPrice
 
   await User.update(
     {

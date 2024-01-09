@@ -66,10 +66,6 @@ const CheckoutPage = () => {
           text: `${error?.response?.data?.message}`,
           icon: "error",
           confirmButtonText: "OK",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/products");
-          }
         });
       }
     });

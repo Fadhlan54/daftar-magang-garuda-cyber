@@ -36,9 +36,11 @@ const VoucherPage = () => {
 
   useEffect(() => {
     getVouchers(statusValue, (data, error) => {
-      console.log(data);
       if (error) {
-        return console.log(error);
+        if (error.response?.status === 404) {
+          return setVoucher([]);
+        }
+        return console.log();
       }
       setVoucher(data.voucher);
     });

@@ -17,6 +17,9 @@ const TransactionHistoryPage = () => {
   useEffect(() => {
     getTransactionHistory(statusValue, (data, error) => {
       if (error) {
+        if (error.response?.status === 404) {
+          return setTransactionHistory([]);
+        }
         return console.log(error);
       }
       setTransactionHistory(data.transactions);
